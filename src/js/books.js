@@ -100,6 +100,18 @@ function showError(message) {
     container.innerHTML = `<div class="error">${message}</div>`;
 }
 
+// Function to handle header scroll effect
+function handleHeaderScroll() {
+    const header = document.querySelector('header');
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+}
+
 // Load and display books
 async function loadBooks() {
     console.log('Starting to load books...');
@@ -134,4 +146,7 @@ async function loadBooks() {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM Content Loaded - Initializing books...');
     loadBooks();
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleHeaderScroll);
 }); 
