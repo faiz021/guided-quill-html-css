@@ -84,8 +84,8 @@ header.scrolled .logo {
 
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
 .book-card {
@@ -106,13 +106,14 @@ header.scrolled .logo {
 
 .book-image {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: 280px;
+    object-fit: contain;
+    background-color: #f8f9fa;
     border-bottom: 1px solid #eee;
 }
 
 .book-info {
-    padding: 1.5rem;
+    padding: 1.25rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -120,7 +121,7 @@ header.scrolled .logo {
 }
 
 .book-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #333;
     margin: 0;
@@ -128,7 +129,7 @@ header.scrolled .logo {
 
 .book-description {
     color: #666;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -185,16 +186,16 @@ footer {
     }
 
     .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.25rem;
     }
 
     .book-image {
-        height: 280px;
+        height: 250px;
     }
 
     .book-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .category-title {
@@ -247,24 +248,24 @@ footer {
     }
 
     .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1rem;
     }
 
     .book-image {
-        height: 250px;
+        height: 220px;
     }
 
     .book-info {
-        padding: 1rem;
+        padding: 0.875rem;
     }
 
     .book-title {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
 
     .book-description {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .category-title {
@@ -332,7 +333,7 @@ footer {
     }
 
     .book-image {
-        height: 220px;
+        height: 200px;
     }
 
     .book-info {
@@ -340,11 +341,11 @@ footer {
     }
 
     .book-title {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .book-description {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         -webkit-line-clamp: 2;
     }
 
@@ -600,9 +601,7 @@ footer {
 
 @media (max-width: 575px) {
     .banner-button {
-        bottom: 3rem;
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        display: none; /* Hide button on mobile devices */
     }
 }
 
