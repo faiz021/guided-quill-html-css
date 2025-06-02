@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: Helvetica, Arial, sans-serif;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -29,12 +29,12 @@ header {
 }
 
 header.scrolled {
-    padding: 1rem;
+    padding: 0.75rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .logo {
-    max-width: 200px;
+    max-width: 300px;
     height: auto;
     transition: transform 0.3s ease;
 }
@@ -207,30 +207,39 @@ footer {
     }
 
     .welcome-section {
-        padding: 2.5rem 1.5rem;
+        padding: 1.25rem;
+        margin: 1.5rem auto;
     }
 
     .welcome-title {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
     .welcome-subtitle {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .welcome-description {
         font-size: 1rem;
+    }
+
+    .banner-section {
+        margin-top: 0;
+    }
+
+    .logo {
+        max-width: 250px;
     }
 }
 
 /* Mobile Landscape (576px to 767px) */
 @media (max-width: 767px) {
     header {
-        padding: 1.5rem;
+        padding: 0.75rem;
     }
 
     .logo {
-        max-width: 150px;
+        max-width: 200px;
     }
 
     .books-container {
@@ -278,30 +287,35 @@ footer {
     }
 
     .welcome-section {
-        padding: 2rem 1rem;
+        padding: 1.25rem;
+        margin: 1.25rem auto;
     }
 
     .welcome-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .welcome-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .welcome-description {
         font-size: 0.95rem;
+    }
+
+    .banner-section {
+        margin-top: 0;
     }
 }
 
 /* Mobile Portrait (up to 575px) */
 @media (max-width: 575px) {
     header {
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .logo {
-        max-width: 120px;
+        max-width: 180px;
     }
 
     .books-container {
@@ -354,19 +368,24 @@ footer {
     }
 
     .welcome-section {
-        padding: 1.5rem 0.75rem;
+        padding: 1rem;
+        margin: 1rem auto;
     }
 
     .welcome-title {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
     .welcome-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .welcome-description {
         font-size: 0.9rem;
+    }
+
+    .banner-section {
+        margin-top: 0;
     }
 }
 
@@ -404,30 +423,204 @@ footer {
 
 .welcome-section {
     text-align: center;
-    padding: 3rem 2rem;
     background-color: #ffffff;
-    margin-bottom: 2rem;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 100%;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
+.welcome-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
 .welcome-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 1rem;
 }
 
 .welcome-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-style: italic;
     color: #666;
     margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e0e0e0;
 }
 
 .welcome-description {
     font-size: 1.1rem;
     color: #555;
-    max-width: 800px;
-    margin: 0 auto;
     line-height: 1.6;
+}
+
+/* Responsive adjustments for welcome section */
+@media (max-width: 991px) {
+    .welcome-section {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .welcome-content {
+        padding: 0 0.75rem;
+    }
+
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .welcome-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .welcome-section {
+        padding: 1.25rem;
+        margin: 1.25rem auto;
+    }
+
+    .welcome-content {
+        padding: 0 0.5rem;
+    }
+
+    .welcome-title {
+        font-size: 1.6rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .welcome-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .welcome-section {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .welcome-content {
+        padding: 0 0.25rem;
+    }
+
+    .welcome-title {
+        font-size: 1.4rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1rem;
+    }
+
+    .welcome-description {
+        font-size: 0.9rem;
+    }
+}
+
+.banner-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.banner-button {
+    position: absolute;
+    bottom: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.75rem 1.5rem;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+.banner-button:hover {
+    background-color: #333333;
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Responsive adjustments for banner button */
+@media (max-width: 991px) {
+    .banner-button {
+        bottom: 5rem;
+        padding: 0.625rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-button {
+        bottom: 4rem;
+        padding: 0.5rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .banner-button {
+        bottom: 3rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Responsive adjustments for banner */
+@media (max-width: 991px) {
+    .banner-section {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-section {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .banner-section {
+        margin-top: 0;
+    }
 } 
