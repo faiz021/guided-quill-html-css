@@ -9,7 +9,6 @@ async function parseCSV(filePath) {
         const csvText = await response.text();
         console.log('CSV content received:', csvText);
 
-        // Split by newline and remove empty lines
         const lines = csvText.split('\n').filter(line => line.trim() !== '');
         console.log('Number of lines in CSV:', lines.length);
 
@@ -17,11 +16,9 @@ async function parseCSV(filePath) {
             throw new Error('CSV file is empty or has no data rows');
         }
 
-        // Parse headers
         const headers = lines[0].split(',').map(header => header.trim());
         console.log('CSV Headers:', headers);
 
-        // Parse data rows
         const books = lines.slice(1).map((line, index) => {
             const values = line.split(',').map(value => value.trim());
             const book = headers.reduce((obj, header, i) => {
@@ -47,7 +44,6 @@ function createBookCard(book) {
     const card = document.createElement('div');
     card.className = 'book-card';
     
-    // Add click handler with error handling
     card.onclick = () => {
         if (book.AMAZON_LINK) {
             window.open(book.AMAZON_LINK, '_blank');
@@ -56,7 +52,6 @@ function createBookCard(book) {
         }
     };
 
-    // Create image with error handling
     const img = document.createElement('img');
     img.src = book.COVER_LINK;
     img.alt = book.TITLE;
@@ -74,10 +69,50 @@ function createBookCard(book) {
         </div>
     `;
 
-    // Insert image at the beginning
     card.insertBefore(img, card.firstChild);
-
     return card;
+}
+
+// Function to format category title
+function formatCategoryTitle(category) {
+    return category
+        .split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+}
+
+// Function to create category section
+function createCategorySection(category, books) {
+    const section = document.createElement('div');
+    section.className = 'category-section';
+    section.id = `category-${category.toLowerCase().replace(/\s+/g, '-')}`;
+    
+    const categoryHeader = document.createElement('div');
+    categoryHeader.className = 'category-header';
+    
+    const categoryTitle = document.createElement('h2');
+    categoryTitle.className = 'category-title';
+    categoryTitle.textContent = formatCategoryTitle(category);
+    
+    const bookCount = document.createElement('span');
+    bookCount.className = 'book-count';
+    bookCount.textContent = `${books.length} ${books.length === 1 ? 'Book' : 'Books'}`;
+    
+    categoryHeader.appendChild(categoryTitle);
+    categoryHeader.appendChild(bookCount);
+    
+    const booksGrid = document.createElement('div');
+    booksGrid.className = 'books-grid';
+    
+    books.forEach(book => {
+        const card = createBookCard(book);
+        booksGrid.appendChild(card);
+    });
+    
+    section.appendChild(categoryHeader);
+    section.appendChild(booksGrid);
+    
+    return section;
 }
 
 // Function to show loading state
@@ -130,12 +165,26 @@ async function loadBooks() {
             return;
         }
         
-        console.log('Rendering books:', books);
-        container.innerHTML = ''; // Clear loading state
-        books.forEach(book => {
-            const card = createBookCard(book);
-            container.appendChild(card);
+        // Group books by category
+        const booksByCategory = books.reduce((acc, book) => {
+            const category = book.CATEGORY || 'Uncategorized';
+            if (!acc[category]) {
+                acc[category] = [];
+            }
+            acc[category].push(book);
+            return acc;
+        }, {});
+        
+        // Sort categories alphabetically
+        const sortedCategories = Object.keys(booksByCategory).sort();
+        
+        // Clear container and add category sections
+        container.innerHTML = '';
+        sortedCategories.forEach(category => {
+            const section = createCategorySection(category, booksByCategory[category]);
+            container.appendChild(section);
         });
+        
     } catch (error) {
         console.error('Error in loadBooks:', error);
         showError(`Failed to load books: ${error.message}`);
