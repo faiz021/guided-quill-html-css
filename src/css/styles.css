@@ -544,11 +544,13 @@ footer {
     height: auto;
     display: block;
     object-fit: cover;
+    transform-origin: center;
+    transition: transform 0.3s ease;
 }
 
 .banner-button {
     position: absolute;
-    bottom: 6rem;
+    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
     padding: 0.75rem 1.5rem;
@@ -610,16 +612,34 @@ footer {
     .banner-section {
         margin-top: 0;
     }
+    
+    .banner-image {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        transform: scale(1.1);
+    }
 }
 
 @media (max-width: 767px) {
     .banner-section {
         margin-top: 0;
     }
+    
+    .banner-image {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        transform: scale(1.2);
+    }
 }
 
 @media (max-width: 575px) {
     .banner-section {
         margin-top: 0;
+    }
+    
+    .banner-image {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        transform: scale(1.3);
     }
 } 
