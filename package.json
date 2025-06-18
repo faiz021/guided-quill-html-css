@@ -1,0 +1,24 @@
+{
+  "name": "guidedquill-html",
+  "version": "1.0.0",
+  "description": "Islamic Books for Children - GuidedQuill Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "node tests/books.test.js",
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "islamic",
+    "books",
+    "children",
+    "education",
+    "religion"
+  ],
+  "author": "GuidedQuill",
+  "license": "MIT",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 
