@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GuidedQuill - Islamic Books for Children</title>
-    <link rel="stylesheet" href="src/css/styles.css">
-</head>
-<body>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <header>
-        <img src="assets/images/logo.svg" alt="GuidedQuill Logo" class="logo">
+      <a href="#"
+        ><img src="assets/images/logo.svg" alt="GuidedQuill Logo" class="logo"
+      /></a>
     </header>
 
     <div class="banner-section">
-        <img class="banner-image" src="https://i.ibb.co/2p3J1Qs/Welcome-to-Guided-Quill.png" alt="Welcome to GuidedQuill">
-        <!-- <img src="assets/images/WelcomeGuidedQuill.png" alt="Welcome to GuidedQuill" class="banner-image"> -->
-        <button class="banner-button" onclick="scrollToBooks()">View our books by category</button>
+      <img
+        class="banner-image"
+        src="https://i.ibb.co/2p3J1Qs/Welcome-to-Guided-Quill.png"
+        alt="Welcome to GuidedQuill"
+      />
+      <!-- <img src="assets/images/WelcomeGuidedQuill.png" alt="Welcome to GuidedQuill" class="banner-image"> -->
+      <button class="banner-button" onclick="scrollToBooks()">
+        View our books by category
+      </button>
     </div>
 
     <!-- <div class="welcome-section">
@@ -26,27 +39,58 @@
     </div> -->
 
     <div id="booksContainer" class="books-container">
-        <!-- Books will be loaded here -->
+      <!-- Books will be loaded here -->
     </div>
 
     <footer>
-        <p>&copy; 2025 GuidedQuill. All rights reserved.</p>
+      <div class="contact">
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 8px;
+            font-size: 14px;
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            width="16"
+            height="16"
+            style="margin-right: 8px; margin-top: 6px"
+          >
+            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free -->
+            <path
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+            />
+          </svg>
+          <span
+            ><a href="mailto:rameez.dr86@gmail.com">
+              rameez.dr86@gmail.com</a
+            ></span
+          >
+        </div>
+      </div>
+
+      <p>&copy; 2024 GuidedQuill. All rights reserved.</p>
     </footer>
 
     <script src="src/js/books.js"></script>
     <script>
-        function scrollToBooks() {
-            const booksContainer = document.getElementById('booksContainer');
-            const headerOffset = 20; // Add some offset to account for the header
-            const elementPosition = booksContainer.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      function scrollToBooks() {
+        const booksContainer = document.getElementById("booksContainer");
+        const headerOffset = 20; // Add some offset to account for the header
+        const elementPosition = booksContainer.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth',
-                duration: 1000 // Longer duration for smoother scroll
-            });
-        }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+          duration: 1000, // Longer duration for smoother scroll
+        });
+      }
     </script>
-</body>
-</html> 
+  </body>
+</html>

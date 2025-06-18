@@ -1,645 +1,654 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f5f5f5;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 1rem;
-    text-align: center;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 header.scrolled {
-    padding: 0.75rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    max-width: 300px;
-    height: auto;
-    transition: transform 0.3s ease;
+  max-width: 300px;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
 header.scrolled .logo {
-    transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 .books-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    flex: 1;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
 }
 
 .category-section {
-    margin-bottom: 2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .category-title {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0;
-    text-transform: capitalize;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+  text-transform: capitalize;
 }
 
 .book-count {
-    font-size: 1.1rem;
-    color: #666;
-    background-color: #f8f9fa;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+  font-size: 1.1rem;
+  color: #666;
+  background-color: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
 }
 
 .books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .book-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .book-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .book-image {
-    width: 100%;
-    height: 280px;
-    object-fit: contain;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #eee;
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
 }
 
 .book-info {
-    padding: 1.25rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .book-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
 }
 
 .book-description {
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #ffffff;
-    margin-top: auto;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 2rem;
+  background-color: #ffffff;
+  margin-top: auto;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Loading and Error States */
-.loading, .error {
-    text-align: center;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.loading,
+.error {
+  text-align: center;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .loading {
-    color: #666;
-    font-size: 1.1rem;
+  color: #666;
+  font-size: 1.1rem;
 }
 
 .error {
-    color: #dc3545;
-    font-size: 1.1rem;
+  color: #dc3545;
+  font-size: 1.1rem;
 }
 
 /* Responsive Design */
 /* Large screens (1200px and up) */
 @media (min-width: 1200px) {
-    .books-container {
-        max-width: 1140px;
-    }
+  .books-container {
+    max-width: 1140px;
+  }
 }
 
 /* Medium screens (992px to 1199px) */
 @media (max-width: 1199px) {
-    .books-container {
-        max-width: 960px;
-    }
+  .books-container {
+    max-width: 960px;
+  }
 }
 
 /* Tablets (768px to 991px) */
 @media (max-width: 991px) {
-    .books-container {
-        max-width: 720px;
-    }
+  .books-container {
+    max-width: 720px;
+  }
 
-    .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1.25rem;
-    }
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
 
-    .book-image {
-        height: 250px;
-    }
+  .book-image {
+    height: 250px;
+  }
 
-    .book-title {
-        font-size: 1rem;
-    }
+  .book-title {
+    font-size: 1rem;
+  }
 
-    .category-title {
-        font-size: 1.4rem;
-    }
+  .category-title {
+    font-size: 1.4rem;
+  }
 
-    .category-section {
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
+  .category-section {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
 
-    .welcome-section {
-        padding: 1.25rem;
-        margin: 1.5rem auto;
-    }
+  .welcome-section {
+    padding: 1.25rem;
+    margin: 1.5rem auto;
+  }
 
-    .welcome-title {
-        font-size: 1.8rem;
-    }
+  .welcome-title {
+    font-size: 1.8rem;
+  }
 
-    .welcome-subtitle {
-        font-size: 1.2rem;
-    }
+  .welcome-subtitle {
+    font-size: 1.2rem;
+  }
 
-    .welcome-description {
-        font-size: 1rem;
-    }
+  .welcome-description {
+    font-size: 1rem;
+  }
 
-    .banner-section {
-        margin-top: 0;
-    }
+  .banner-section {
+    margin-top: 0;
+  }
 
-    .logo {
-        max-width: 250px;
-    }
+  .logo {
+    max-width: 250px;
+  }
 }
 
 /* Mobile Landscape (576px to 767px) */
 @media (max-width: 767px) {
-    header {
-        padding: 0.75rem;
-    }
+  header {
+    padding: 0.75rem;
+  }
 
-    .logo {
-        max-width: 200px;
-    }
+  .logo {
+    max-width: 200px;
+  }
 
-    .books-container {
-        max-width: 540px;
-    }
+  .books-container {
+    max-width: 540px;
+  }
 
-    .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1rem;
-    }
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
 
-    .book-image {
-        height: 220px;
-    }
+  .book-image {
+    height: 220px;
+  }
 
-    .book-info {
-        padding: 0.875rem;
-    }
+  .book-info {
+    padding: 0.875rem;
+  }
 
-    .book-title {
-        font-size: 0.95rem;
-    }
+  .book-title {
+    font-size: 0.95rem;
+  }
 
-    .book-description {
-        font-size: 0.85rem;
-    }
+  .book-description {
+    font-size: 0.85rem;
+  }
 
-    .category-title {
-        font-size: 1.3rem;
-    }
+  .category-title {
+    font-size: 1.3rem;
+  }
 
-    .category-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 
-    .book-count {
-        font-size: 1rem;
-    }
+  .book-count {
+    font-size: 1rem;
+  }
 
-    .category-section {
-        padding: 1rem;
-        margin-bottom: 1.25rem;
-    }
+  .category-section {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+  }
 
-    .welcome-section {
-        padding: 1.25rem;
-        margin: 1.25rem auto;
-    }
+  .welcome-section {
+    padding: 1.25rem;
+    margin: 1.25rem auto;
+  }
 
-    .welcome-title {
-        font-size: 1.6rem;
-    }
+  .welcome-title {
+    font-size: 1.6rem;
+  }
 
-    .welcome-subtitle {
-        font-size: 1.1rem;
-    }
+  .welcome-subtitle {
+    font-size: 1.1rem;
+  }
 
-    .welcome-description {
-        font-size: 0.95rem;
-    }
+  .welcome-description {
+    font-size: 0.95rem;
+  }
 
-    .banner-section {
-        margin-top: 0;
-    }
+  .banner-section {
+    margin-top: 0;
+  }
 }
 
 /* Mobile Portrait (up to 575px) */
 @media (max-width: 575px) {
-    header {
-        padding: 0.5rem;
-    }
+  header {
+    padding: 0.5rem;
+  }
 
-    .logo {
-        max-width: 180px;
-    }
+  .logo {
+    max-width: 180px;
+  }
 
-    .books-container {
-        padding: 0 0.5rem;
-    }
+  .books-container {
+    padding: 0 0.5rem;
+  }
 
-    .books-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
+  .books-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
-    .book-card {
-        margin: 0 0.5rem;
-    }
+  .book-card {
+    margin: 0 0.5rem;
+  }
 
-    .book-image {
-        height: 200px;
-    }
+  .book-image {
+    height: 200px;
+  }
 
-    .book-info {
-        padding: 0.75rem;
-    }
+  .book-info {
+    padding: 0.75rem;
+  }
 
-    .book-title {
-        font-size: 0.9rem;
-    }
+  .book-title {
+    font-size: 0.9rem;
+  }
 
-    .book-description {
-        font-size: 0.8rem;
-        -webkit-line-clamp: 2;
-    }
+  .book-description {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+  }
 
-    .category-title {
-        font-size: 1.2rem;
-    }
+  .category-title {
+    font-size: 1.2rem;
+  }
 
-    .category-section {
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-    }
+  .category-section {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
 
-    .book-count {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.8rem;
-    }
+  .book-count {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+  }
 
-    footer {
-        padding: 1rem;
-        font-size: 0.9rem;
-    }
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
 
-    .welcome-section {
-        padding: 1rem;
-        margin: 1rem auto;
-    }
+  .welcome-section {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
 
-    .welcome-title {
-        font-size: 1.4rem;
-    }
+  .welcome-title {
+    font-size: 1.4rem;
+  }
 
-    .welcome-subtitle {
-        font-size: 1rem;
-    }
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
 
-    .welcome-description {
-        font-size: 0.9rem;
-    }
+  .welcome-description {
+    font-size: 0.9rem;
+  }
 
-    .banner-section {
-        margin-top: 0;
-    }
+  .banner-section {
+    margin-top: 0;
+  }
 }
 
 /* Print styles */
 @media print {
-    body {
-        background-color: #ffffff;
-    }
+  body {
+    background-color: #ffffff;
+  }
 
-    header, footer {
-        box-shadow: none;
-    }
+  header,
+  footer {
+    box-shadow: none;
+  }
 
-    .category-section {
-        box-shadow: none;
-        border: 1px solid #ddd;
-        page-break-inside: avoid;
-    }
+  .category-section {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
 
-    .book-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
+  .book-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
 
-    .book-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
+  .book-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
 
-    .category-header {
-        border-bottom: 1px solid #000;
-    }
+  .category-header {
+    border-bottom: 1px solid #000;
+  }
 }
 
 .welcome-section {
-    text-align: center;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 2rem;
-    margin: 2rem auto;
-    width: 100%;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .welcome-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .welcome-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
 }
 
 .welcome-subtitle {
-    font-size: 1.3rem;
-    font-style: italic;
-    color: #666;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid #e0e0e0;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .welcome-description {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
 }
 
 /* Responsive adjustments for welcome section */
 @media (max-width: 991px) {
-    .welcome-section {
-        padding: 1.5rem;
-        margin: 1.5rem auto;
-    }
+  .welcome-section {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
 
-    .welcome-content {
-        padding: 0 0.75rem;
-    }
+  .welcome-content {
+    padding: 0 0.75rem;
+  }
 
-    .welcome-title {
-        font-size: 1.8rem;
-    }
+  .welcome-title {
+    font-size: 1.8rem;
+  }
 
-    .welcome-subtitle {
-        font-size: 1.2rem;
-    }
+  .welcome-subtitle {
+    font-size: 1.2rem;
+  }
 
-    .welcome-description {
-        font-size: 1rem;
-    }
+  .welcome-description {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 767px) {
-    .welcome-section {
-        padding: 1.25rem;
-        margin: 1.25rem auto;
-    }
+  .welcome-section {
+    padding: 1.25rem;
+    margin: 1.25rem auto;
+  }
 
-    .welcome-content {
-        padding: 0 0.5rem;
-    }
+  .welcome-content {
+    padding: 0 0.5rem;
+  }
 
-    .welcome-title {
-        font-size: 1.6rem;
-    }
+  .welcome-title {
+    font-size: 1.6rem;
+  }
 
-    .welcome-subtitle {
-        font-size: 1.1rem;
-    }
+  .welcome-subtitle {
+    font-size: 1.1rem;
+  }
 
-    .welcome-description {
-        font-size: 0.95rem;
-    }
+  .welcome-description {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 575px) {
-    .welcome-section {
-        padding: 1rem;
-        margin: 1rem auto;
-    }
+  .welcome-section {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
 
-    .welcome-content {
-        padding: 0 0.25rem;
-    }
+  .welcome-content {
+    padding: 0 0.25rem;
+  }
 
-    .welcome-title {
-        font-size: 1.4rem;
-    }
+  .welcome-title {
+    font-size: 1.4rem;
+  }
 
-    .welcome-subtitle {
-        font-size: 1rem;
-    }
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
 
-    .welcome-description {
-        font-size: 0.9rem;
-    }
+  .welcome-description {
+    font-size: 0.9rem;
+  }
 }
 
 .banner-section {
-    width: 100%;
-    background-color: #ffffff;
-    padding: 0;
-    margin: 0;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .banner-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    transform-origin: center;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
 
 .banner-button {
-    position: absolute;
-    bottom: 4rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.75rem 1.5rem;
-    background-color: #000000;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: normal;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    animation: float 3s ease-in-out infinite;
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.5rem;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: normal;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: float 3s ease-in-out infinite;
 }
 
 .banner-button:hover {
-    background-color: #333333;
-    transform: translateX(-50%) translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  background-color: #333333;
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 @keyframes float {
-    0% {
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* Responsive adjustments for banner button */
 @media (max-width: 991px) {
-    .banner-button {
-        bottom: 5rem;
-        padding: 0.625rem 1.25rem;
-        font-size: 0.95rem;
-    }
+  .banner-button {
+    bottom: 5rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 767px) {
-    .banner-button {
-        bottom: 4rem;
-        padding: 0.5rem 1.25rem;
-        font-size: 0.9rem;
-    }
+  .banner-button {
+    bottom: 4rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 575px) {
-    .banner-button {
-        display: none; /* Hide button on mobile devices */
-    }
+  .banner-button {
+    display: none; /* Hide button on mobile devices */
+  }
 }
 
 /* Responsive adjustments for banner */
 @media (max-width: 991px) {
-    .banner-section {
-        margin-top: 0;
-    }
-    
-    .banner-image {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-        transform: scale(1.1);
-    }
+  .banner-section {
+    margin-top: 0;
+  }
+
+  .banner-image {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    transform: scale(1.1);
+  }
 }
 
 @media (max-width: 767px) {
-    .banner-section {
-        margin-top: 0;
-    }
-    
-    .banner-image {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-        transform: scale(1.2);
-    }
+  .banner-section {
+    margin-top: 0;
+  }
+
+  .banner-image {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    transform: scale(1.2);
+  }
 }
 
 @media (max-width: 575px) {
-    .banner-section {
-        margin-top: 0;
-    }
-    
-    .banner-image {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-        transform: scale(1.3);
-    }
-} 
+  .banner-section {
+    margin-top: 0;
+  }
+
+  .banner-image {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    transform: scale(1.3);
+  }
+}
+.contact {
+  text-align: center;
+}
+.contact div span a {
+  color: #5a5555;
+}
